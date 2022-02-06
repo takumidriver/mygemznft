@@ -1,6 +1,12 @@
 import streamlit as st
+import requests, json
+from assets import *
+from events import *
 
-st.selectbox("Event")
-st.write("Some text")
+endpoint = st.sidebar.selectbox("Endpoints", ['Assets', 'Events', 'Rarity'])
+st.header(f"mygemz // {endpoint}")
 
-st.sidebar.write("Something else")
+if endpoint == 'Assets':
+    displayNFTs()
+elif endpoint == 'Events':
+    displayEvents()
